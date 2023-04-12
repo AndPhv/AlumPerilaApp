@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.alumperilaapp.databinding.FragmentHomeBinding
+import com.example.alumperilaapp.databinding.FragmentCatalogBinding
 
 class CatalogFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentCatalogBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,10 +22,10 @@ class CatalogFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this).get(CatalogViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentCatalogBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        val textView: TextView = binding.textCatalog
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

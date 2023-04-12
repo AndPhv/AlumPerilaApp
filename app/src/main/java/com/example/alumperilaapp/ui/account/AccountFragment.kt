@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.alumperilaapp.databinding.FragmentNotificationsBinding
+import com.example.alumperilaapp.databinding.FragmentAccountBinding
 
 class AccountFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentAccountBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,10 +22,10 @@ class AccountFragment : Fragment() {
         val notificationsViewModel =
             ViewModelProvider(this).get(AccountViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        val textView: TextView = binding.textAccount
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
