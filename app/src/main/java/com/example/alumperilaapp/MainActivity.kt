@@ -1,8 +1,6 @@
 package com.example.alumperilaapp
 
 import android.os.Bundle
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -41,10 +39,10 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener{_,distonation, _ ->
             when(distonation.id) {
                 R.id.navigation_catalog -> {
-                    binding.toolbar.visibility = VISIBLE
+                    supportActionBar?.show()
                 }
                 else ->
-                    binding.toolbar.visibility = GONE
+                    supportActionBar?.hide()
             }
         }
 
