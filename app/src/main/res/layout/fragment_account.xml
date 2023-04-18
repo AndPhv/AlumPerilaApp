@@ -195,7 +195,8 @@
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/instagram" />
+                android:src="@drawable/instagram"
+                />
         </LinearLayout>
 
     </LinearLayout>
