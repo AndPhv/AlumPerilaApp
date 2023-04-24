@@ -40,5 +40,4 @@ class HomePerilaAdapter : RecyclerView.Adapter<HomePerilaAdapter.HomePerilaViewH
         this.homePerilaList.addAll(inputArrayList)
         notifyItemRangeChanged(0, inputArrayList.size)
     }
-
 }

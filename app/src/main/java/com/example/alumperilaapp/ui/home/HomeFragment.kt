@@ -18,6 +18,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val vm: HomeViewModel by viewModels()
     //private val homeAdapter = HomeAdapter()
     private val homePerilAdapter = HomePerilaAdapter()
+    private val homeONasAdapter = HomeONasAdapter()
 
     private val imageList = arrayListOf<SlideModel>()
     override fun onCreateView(
@@ -44,6 +45,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         vm.getHomePerilaLiveData().observe(viewLifecycleOwner) {
             homePerilAdapter.updateHomePerilaList(it)
         }
+        vm.getHomeONasLiveData().observe(viewLifecycleOwner) {
+            homeONasAdapter.updateHomeONasList(it)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,6 +60,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             rcPerila.adapter = homePerilAdapter
             rcPerila.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             rcPerila.setItemViewCacheSize(20)
+
+            rcONas.adapter = homeONasAdapter
+            rcONas.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            rcONas.setItemViewCacheSize(20)
         }
     }
 }
