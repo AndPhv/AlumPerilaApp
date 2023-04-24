@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
     private val vm: HomeViewModel by viewModels()
-    private val homeAdapter = HomeAdapter()
+    //private val homeAdapter = HomeAdapter()
+    private val homePerilAdapter = HomePerilaAdapter()
+
     private val imageList = arrayListOf<SlideModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +41,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onResume() {
         super.onResume()
-        vm.getHomeLiveData().observe(viewLifecycleOwner) {
-            homeAdapter.updateHomeList(it)
+        vm.getHomePerilaLiveData().observe(viewLifecycleOwner) {
+            homePerilAdapter.updateHomePerilaList(it)
         }
     }
 
@@ -51,6 +52,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             //rcImgPerila.adapter = homeAdapter
             //rcImgPerila.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             //rcImgPerila.setItemViewCacheSize(20)
+
+            rcPerila.adapter = homePerilAdapter
+            rcPerila.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            rcPerila.setItemViewCacheSize(20)
         }
     }
 }

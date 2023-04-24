@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="15dp"
+    app:cardBackgroundColor="#E3E3E3"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
+
+
+    <TextView
+        android:id="@+id/txtPerilaHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:text="Круглые перила"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgPerilaHome"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/round_perila_home" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/perila_home_0"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="36dp" />
+</androidx.cardview.widget.CardView>
