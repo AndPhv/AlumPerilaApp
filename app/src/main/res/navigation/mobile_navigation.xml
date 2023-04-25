@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_notifications"
             app:destination="@id/navigation_account" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_podrobnee"
+            app:destination="@id/navigation_podrobnee" />
     </fragment>
 
     <fragment
@@ -44,5 +47,14 @@
         <action
             android:id="@+id/action_navigation_notifications_to_navigation_catalog"
             app:destination="@id/navigation_catalog" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_podrobnee"
+        android:name="com.example.alumperilaapp.ui.podrobnee.PodrobneeFragment"
+        android:label="@string/title_podrobnee"
+        tools:layout="@layout/fragment_podrobnee">
+        <action
+            android:id="@+id/action_navigation_podrobnee_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 </navigation>

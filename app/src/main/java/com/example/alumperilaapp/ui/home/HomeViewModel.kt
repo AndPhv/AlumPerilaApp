@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.alumperilaapp.R
-import com.example.domain.HomeDomain
 import com.example.domain.HomeONasDomain
 import com.example.domain.HomePerilaDomain
 

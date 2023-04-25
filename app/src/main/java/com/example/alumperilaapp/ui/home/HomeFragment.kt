@@ -6,19 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.alumperilaapp.R
 import com.example.alumperilaapp.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), HomeONasAdapter.HomeONasClickListener {
 
     private lateinit var binding: FragmentHomeBinding
     private val vm: HomeViewModel by viewModels()
     //private val homeAdapter = HomeAdapter()
     private val homePerilAdapter = HomePerilaAdapter()
-    private val homeONasAdapter = HomeONasAdapter()
+    private val homeONasAdapter = HomeONasAdapter(this)
 
     private val imageList = arrayListOf<SlideModel>()
     override fun onCreateView(
@@ -65,5 +66,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             rcONas.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             rcONas.setItemViewCacheSize(20)
         }
+    }
+
+    override fun onClick(command: Int) {
+        findNavController().navigate(R.id.action_navigation_home_to_navigation_podrobnee)
     }
 }

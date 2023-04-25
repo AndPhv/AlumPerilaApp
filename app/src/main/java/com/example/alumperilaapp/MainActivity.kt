@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_catalog -> {
                     supportActionBar?.show()
                 }
+                R.id.navigation_podrobnee -> {
+                    supportActionBar?.show()
+                }
                 else ->
                     supportActionBar?.hide()
             }

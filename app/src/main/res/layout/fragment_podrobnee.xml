@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgPodrobnee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/txtPodrobnee1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="      Друзья! Наша Компания производит  перила из анодированного алюминия и комплектующие к ним. У нас вы можете приобрести в полном комплекте материал для установки алюминиевых перил, а также заказать установку ограждений из алюминия &quot;под ключ&quot;, куда будет включено:  монтаж, изготовление, установка и доставка материала на объект. Наша Компания является ведущей на рынке в России по производству, монтажу и изготовлению перил из анодированного, крашеного в РАЛ или &quot;под дерево&quot; алюминия. Мы осуществляем поставки материала по всей России и приглашаем к сотрудничеству дилеров и представителей из других городов, и предлагаем всем желающим, крупным и мелким фирмам, а также любителям самостоятельной установки, пройти легкий ликбез по монтажу у нас. Помочь в правильной установке  и монтаже лестничных ограждений из анодированного алюминия, мы сможем оказать по телефону или при личной встрече на нашем складе.  Мы имеем большой опыт по установке  лестничных ограждений и перил из алюминия. Работы всегда выполняются качественно и в срок. Также мы даем гарантию на все виды работ не менее года, что является большим преимуществом при работе с нами. Мы гарантируем качество и низкую цену за материал и монтаж."
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txtPodrobnee2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="      Анодированный алюминий как материал долговечен, прочный и лёгкий. Алюминиевые перила, поручни и ограждения устанавливаются внутри помещении, на улице,  не требуют  особого ухода за ними, морозостойкие и самое главное -  не боятся влаги. Прекрасно ведут себя на улицах приморских городов."
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txtPodrobnee3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:text="© 2011-2023, Алюмперила Алюминиевые перила, поручни, ограждения, цена, купить, анодированный алюминий."
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</ScrollView>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AlumPerilaApp</string>
-    <string name="title_catalog">Catalog</string>
+    <string name="title_catalog">Каталог</string>
     <string name="title_home">Home</string>
     <string name="title_account">Account</string>
+    <string name="title_podrobnee">Подробнее о нашей компании</string>
 </resources>
