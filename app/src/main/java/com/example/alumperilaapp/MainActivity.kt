@@ -1,6 +1,7 @@
 package com.example.alumperilaapp
 
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -46,6 +47,19 @@ class MainActivity : AppCompatActivity() {
                 }
                 else ->
                     supportActionBar?.hide()
+            }
+            when(distonation.id) {
+                R.id.navigation_home -> {
+                    binding.navView.visibility = View.VISIBLE
+                }
+                R.id.navigation_catalog -> {
+                    binding.navView.visibility = View.VISIBLE
+                }
+                R.id.navigation_account -> {
+                    binding.navView.visibility = View.VISIBLE
+                }
+                else ->
+                    binding.navView.visibility = View.GONE
             }
         }
 
