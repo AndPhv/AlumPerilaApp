@@ -1,4 +1,6 @@
 package com.example.alumperilaapp.ui.podrobnee
 
-class PodrobneeViewModel {
+import androidx.lifecycle.ViewModel
+
+class PodrobneeViewModel : ViewModel() {
 }
