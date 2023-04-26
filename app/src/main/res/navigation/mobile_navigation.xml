@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/navigation_enterPhoneNum">
 
     <fragment
         android:id="@+id/navigation_catalog"
@@ -55,6 +55,24 @@
         tools:layout="@layout/fragment_podrobnee">
         <action
             android:id="@+id/action_navigation_podrobnee_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_enterPhoneNum"
+        android:name="com.example.alumperilaapp.ui.enterPhoneNum.enterPhoneNumFragment"
+        android:label="@string/title_enterPhoneNum"
+        tools:layout="@layout/fragment_enter_phone_num">
+        <action
+            android:id="@+id/action_navigation_enterPhoneNum_to_enterCodeFragment"
+            app:destination="@id/navigation_enterCode" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_enterCode"
+        android:name="com.example.alumperilaapp.ui.enterCode.enterCodeFragment"
+        android:label="@string/title_enterCode"
+        tools:layout="@layout/fragment_enter_code">
+        <action
+            android:id="@+id/action_enterCodeFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
 </navigation>
