@@ -1,5 +1,6 @@
 package com.example.alumperilaapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -9,7 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.alumperilaapp.activity.RegisterActivity
 import com.example.alumperilaapp.databinding.ActivityMainBinding
+import com.example.alumperilaapp.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,5 +67,22 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initFunc()
+    }
+
+    private fun initFunc() {
+        if (false) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_activity_register,
+                    HomeFragment()
+                ).commit()
+        } else {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
