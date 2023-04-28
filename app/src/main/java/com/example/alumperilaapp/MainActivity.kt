@@ -1,18 +1,17 @@
 package com.example.alumperilaapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.navOptions
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.alumperilaapp.activity.RegisterActivity
 import com.example.alumperilaapp.databinding.ActivityMainBinding
-import com.example.alumperilaapp.ui.home.HomeFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,17 +38,22 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        binding.toolbar.setNavigationOnClickListener {
+            navController.popBackStack()
+        }
+
+//        binding.toolbar.navigationIcon?.setTint(Color.parseColor("#FFFFFF"))
+
         navController.addOnDestinationChangedListener{_,distonation, _ ->
             when(distonation.id) {
-                R.id.navigation_catalog -> {
-                    supportActionBar?.show()
-                }
-                R.id.navigation_podrobnee -> {
+                R.id.navigation_catalog, R.id.navigation_podrobnee -> {
                     supportActionBar?.show()
                 }
                 else ->
                     supportActionBar?.hide()
             }
+
+            // изменить
             when(distonation.id) {
                 R.id.navigation_home -> {
                     binding.navView.visibility = View.VISIBLE
@@ -76,13 +80,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
         if (false) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_register,
-                    HomeFragment()
-                ).commit()
+            navController.navigate(R.id.navigation_home, bundleOf(), navOptions{launchSingleTop = true
+                popUpTo(R.id.mobile_navigation)})
         } else {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            navController.navigate(R.id.navigation_enterPhoneNum, bundleOf(), navOptions{launchSingleTop = true
+                popUpTo(R.id.mobile_navigation)})
         }
     }
 }

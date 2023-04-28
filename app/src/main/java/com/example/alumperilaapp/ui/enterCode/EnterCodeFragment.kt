@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.alumperilaapp.R
 import com.example.alumperilaapp.databinding.FragmentEnterCodeBinding
 
@@ -45,6 +46,7 @@ class EnterCodeFragment : Fragment(R.layout.fragment_enter_code) {
     }
 
     private fun verifiCode() {
-        Toast.makeText(activity, "OK", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "OK", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_enterCodeFragment_to_navigation_home)
     }
 }

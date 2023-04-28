@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:background="@color/dark_grey"
         android:minHeight="?attr/actionBarSize"
-        app:title="@string/app_name" />
+        app:title="@string/app_name"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_24"
+        />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_activity_main"
