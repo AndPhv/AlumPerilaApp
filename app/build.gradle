@@ -53,5 +53,9 @@ dependencies {
     // FireBase
     implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
 
+    // SliderImage
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+
+    // EditTextMask
+    implementation 'com.github.santalu:maskara:1.0.0'
 }
