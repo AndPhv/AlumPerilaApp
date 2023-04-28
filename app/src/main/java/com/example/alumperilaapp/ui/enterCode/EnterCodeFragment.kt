@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.alumperilaapp.R
 import com.example.alumperilaapp.databinding.FragmentEnterCodeBinding
+import com.example.alumperilaapp.ui.utilits.AppTextWatcher
 
 class EnterCodeFragment : Fragment(R.layout.fragment_enter_code) {
     private lateinit var binding: FragmentEnterCodeBinding
@@ -26,21 +27,10 @@ class EnterCodeFragment : Fragment(R.layout.fragment_enter_code) {
 
     override fun onStart() {
         super.onStart()
-        binding.editTxtCode.addTextChangedListener(object : TextWatcher {
-
-            override fun afterTextChanged(s: Editable?) {
-                val string = binding.editTxtCode.text.toString()
-                if (string.length >= 6) {
-                    verifiCode()
-                }
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+        binding.editTxtCode.addTextChangedListener(AppTextWatcher {
+            val string = binding.editTxtCode.text.toString()
+            if (string.length >= 6) {
+                verifiCode()
             }
         })
     }
