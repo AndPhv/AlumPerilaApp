@@ -53,15 +53,8 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.hide()
             }
 
-            // изменить
             when(distonation.id) {
-                R.id.navigation_home -> {
-                    binding.navView.visibility = View.VISIBLE
-                }
-                R.id.navigation_catalog -> {
-                    binding.navView.visibility = View.VISIBLE
-                }
-                R.id.navigation_account -> {
+                R.id.navigation_home, R.id.navigation_catalog, R.id.navigation_account -> {
                     binding.navView.visibility = View.VISIBLE
                 }
                 else ->
