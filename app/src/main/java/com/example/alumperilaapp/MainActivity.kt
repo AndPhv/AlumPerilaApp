@@ -11,7 +11,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.alumperilaapp.databinding.ActivityMainBinding
+import com.example.alumperilaapp.ui.utilits.AUTH
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -68,16 +70,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        initFields()
         initFunc()
     }
 
     private fun initFunc() {
-        if (false) {
+        if (AUTH.currentUser != null) {
             navController.navigate(R.id.navigation_home, bundleOf(), navOptions{launchSingleTop = true
                 popUpTo(R.id.mobile_navigation)})
         } else {
             navController.navigate(R.id.navigation_enterPhoneNum, bundleOf(), navOptions{launchSingleTop = true
                 popUpTo(R.id.mobile_navigation)})
         }
+    }
+
+    private fun initFields() {
+        AUTH = FirebaseAuth.getInstance()
     }
 }

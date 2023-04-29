@@ -44,7 +44,7 @@
             android:textColor="#000000"
             android:textColorHint="#737373"
             android:textStyle="italic"
-            app:mask="+7 (###) ###-##-##" />
+            app:mask="+###########" />
     </LinearLayout>
     <Button
         android:id="@+id/buttonCode"
