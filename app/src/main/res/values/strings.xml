@@ -7,4 +7,5 @@
     <string name="title_enterPhoneNum">EnterPhoneNum</string>
     <string name="title_enterCode">EnterCode</string>
     <string name="title_enterKeyAdmin">EnterKeyAdmin</string>
+    <string name="title_admin">Admin</string>
 </resources>
