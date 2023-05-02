@@ -65,6 +65,9 @@
         <action
             android:id="@+id/action_navigation_enterPhoneNum_to_enterCodeFragment"
             app:destination="@id/navigation_enterCode" />
+        <action
+            android:id="@+id/action_navigation_enterPhoneNum_to_enterKeyAdminFragment"
+            app:destination="@id/navigation_enterKeyAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_enterCode"
@@ -75,4 +78,9 @@
             android:id="@+id/action_enterCodeFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_enterKeyAdminFragment"
+        android:name="com.example.alumperilaapp.ui.enterKayAdmin.EnterKeyAdminFragment"
+        android:label="@string/title_enterKeyAdmin"
+        tools:layout="@layout/fragment_enter_key_admin"/>
 </navigation>

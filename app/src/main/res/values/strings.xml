@@ -6,4 +6,5 @@
     <string name="title_podrobnee">Подробнее о нашей компании</string>
     <string name="title_enterPhoneNum">EnterPhoneNum</string>
     <string name="title_enterCode">EnterCode</string>
+    <string name="title_enterKeyAdmin">EnterKeyAdmin</string>
 </resources>

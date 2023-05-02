@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -41,10 +42,8 @@ class EnterPhoneNumFragment : Fragment(R.layout.fragment_enter_phone_num) {
         binding = FragmentEnterPhoneNumBinding.inflate(inflater, container, false)
 
 //        navHostFragment =
-//            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+//            supportFragmentManager.findFragmentById(R.id.navigation_enterPhoneNum) as NavHostFragment
 //        navController = navHostFragment.navController
-
-        binding.buttonCode.setOnClickListener { sendCode() }
 
         return binding.root
     }
@@ -67,21 +66,28 @@ class EnterPhoneNumFragment : Fragment(R.layout.fragment_enter_phone_num) {
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
 
-                fragmentManager?.beginTransaction()
-                    ?.replace(R.id.nav_host_fragment_activity_main, EnterCodeFragment(mPhoneNumber, id))
-                    ?.addToBackStack(null)
-                    ?.commit()
+//                fragmentManager?.beginTransaction()
+//                    ?.replace(R.id.nav_host_fragment_activity_main, EnterCodeFragment(mPhoneNumber, id))
+//                    ?.addToBackStack(null)
+//                    ?.commit()
 
-//                val bundle = Bundle()
-//                bundle.putString("phoneNumber", mPhoneNumber)
-//                bundle.putString("id", id)
+                val bundle = Bundle()
+                bundle.putString("phoneNumber", mPhoneNumber)
+                bundle.putString("id", id)
 //
 //                navController.navigate(R.id.navigation_enterCode, bundle, navOptions{launchSingleTop = true
 //                    popUpTo(R.id.mobile_navigation)})
+
+                lifecycleScope.launchWhenResumed {
+                    findNavController().navigate(R.id.action_navigation_enterPhoneNum_to_enterCodeFragment, bundle)
+                }
+
             }
-
         }
-
+        binding.buttonCode.setOnClickListener { sendCode() }
+        binding.txtAdmin.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_enterPhoneNum_to_enterKeyAdminFragment)
+        }
     }
 
     private fun sendCode() {
