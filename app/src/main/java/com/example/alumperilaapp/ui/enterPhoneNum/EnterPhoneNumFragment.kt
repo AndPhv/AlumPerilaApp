@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.alumperilaapp.MainActivity
@@ -27,7 +28,10 @@ class EnterPhoneNumFragment : Fragment(R.layout.fragment_enter_phone_num) {
     private lateinit var binding: FragmentEnterPhoneNumBinding
     private lateinit var mPhoneNumber: String
     private lateinit var mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-    //private lateinit var navController: NavController
+    private lateinit var navController: NavController
+    private lateinit var navHostFragment: NavHostFragment
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +39,13 @@ class EnterPhoneNumFragment : Fragment(R.layout.fragment_enter_phone_num) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentEnterPhoneNumBinding.inflate(inflater, container, false)
+
+//        navHostFragment =
+//            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+//        navController = navHostFragment.navController
+
+        binding.buttonCode.setOnClickListener { sendCode() }
+
         return binding.root
     }
 
@@ -55,17 +66,22 @@ class EnterPhoneNumFragment : Fragment(R.layout.fragment_enter_phone_num) {
             }
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
-//                navController.navigate(R.id.navigation_enterCode, bundleOf(), navOptions{launchSingleTop = true
-//                    popUpTo(R.id.mobile_navigation)})
 
                 fragmentManager?.beginTransaction()
                     ?.replace(R.id.nav_host_fragment_activity_main, EnterCodeFragment(mPhoneNumber, id))
                     ?.addToBackStack(null)
                     ?.commit()
+
+//                val bundle = Bundle()
+//                bundle.putString("phoneNumber", mPhoneNumber)
+//                bundle.putString("id", id)
+//
+//                navController.navigate(R.id.navigation_enterCode, bundle, navOptions{launchSingleTop = true
+//                    popUpTo(R.id.mobile_navigation)})
             }
 
         }
-        binding.buttonCode.setOnClickListener { sendCode() }
+
     }
 
     private fun sendCode() {
@@ -78,7 +94,6 @@ class EnterPhoneNumFragment : Fragment(R.layout.fragment_enter_phone_num) {
 
     private fun authUser() {
         mPhoneNumber = binding.editTxtPhoneNum.text.toString()
-        //PhoneAuthProvider.getInstance().verifyPhoneNumber(mPhoneNumber, 60, TimeUnit.SECONDS, activity as MainActivity, mCallback)
 
         val options = PhoneAuthOptions.newBuilder(AUTH)
             .setPhoneNumber(mPhoneNumber)
